@@ -1,0 +1,184 @@
+$bodycolor:#e4007f;
+$textcolor:#fff;
+
+/* 点滅 */
+.blinking{
+	-webkit-animation:blink .8s ease-in-out infinite alternate;
+    -moz-animation:blink .8s ease-in-out infinite alternate;
+    animation:blink .8s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    66% {opacity:1;}
+    84% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    66% {opacity:1;}
+    84% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes blink{
+    0% {opacity:0;}
+    66% {opacity:1;}
+    84% {opacity:0;}
+    100% {opacity:1;}
+}
+
+
+figure{
+    display: inline-block;
+}
+body{
+    padding-top: 4px;
+    border-radius: 3px;
+    text-align: center;
+    background: $bodycolor;
+    color: $textcolor;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+.outer{
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+     background: #fff;
+    color: $bodycolor;
+    padding:40px 0;
+}
+table {
+    width: 80%;
+    margin: 0 auto;
+}
+th {
+    width: 80%;
+    margin: 0 auto;
+    background: $bodycolor;
+    color: #fff;
+    text-align: center;
+    display: block;
+}
+td {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: content-box;
+}
+.brash {
+    display: flex;
+    justify-content: center;
+    span {
+        display: block;
+        font-weight: bold;
+    }
+}
+.upload {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.printclub {
+    position: relative;
+}
+#bg_area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+#drow_area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+#concat{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+}
+.brash_menu {
+    width: 25%;
+    input {
+        width: 100%;
+    }
+}
+.upload {
+    width: 100%;
+    input {
+        width: 100%;
+    }
+}
+#canvas {
+    border :2px solid #f00;
+}
+
+.btn_area {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+}
+.btn {
+    background: $bodycolor;
+    color: #fff;
+    line-height: 40px;
+    height: 40px;
+    width: 44%;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#clear_btn {
+    border: 2px solid $bodycolor;
+    background: #fff;
+    color: $bodycolor;
+}
+
+
+
+
+
+
+/* bbs_select */
+.bbs_select {
+    .chat_item {
+        border-top:$bodycolor 2px solid;
+        padding: 10px 20px 10px;
+        position: relative;
+    }
+    .chat_head {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .id {
+        margin-right: 20px;
+    }
+    .name {
+    }
+
+    .text {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .btn_area {
+        width: 100%;
+        justify-content: end;
+        margin-right: -10px;
+    }
+    .btn {
+        line-height: 26px;
+        height: 26px;
+        width: initial;
+        padding: 0 20px;
+        margin: 0 5px;
+
+    }
+}
