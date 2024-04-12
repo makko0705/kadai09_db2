@@ -28,7 +28,9 @@ $textcolor:#fff;
     84% {opacity:0;}
     100% {opacity:1;}
 }
-
+.btn:hover {
+    opacity: 0.6;
+}
 
 figure{
     display: inline-block;
@@ -58,6 +60,7 @@ table {
 }
 th {
     width: 80%;
+    padding: 4px 0;
     margin: 0 auto;
     background: $bodycolor;
     color: #fff;
@@ -104,6 +107,9 @@ td {
     right: 0;
     z-index: 0;
 }
+.input_item {
+ margin-bottom: 10px;
+}
 .brash_menu {
     width: 25%;
     input {
@@ -133,6 +139,7 @@ td {
     height: 40px;
     width: 44%;
     border-radius: 10px;
+    border: none;
     font-weight: bold;
     cursor: pointer;
 }
@@ -157,11 +164,17 @@ td {
     .chat_head {
         display: flex;
         justify-content: flex-start;
+        margin-bottom: 5px;
     }
     .id {
         margin-right: 20px;
     }
-    .name {
+    .image {
+        width: 100%;
+        margin-bottom: 10px;
+        img {
+            width: 100%;
+        }
     }
 
     .text {
@@ -179,6 +192,40 @@ td {
         width: initial;
         padding: 0 20px;
         margin: 0 5px;
+    }
+}
+legend {
+    margin-bottom: 10px;
+}
+input {
+    width:calc(80% - 8px);
+    padding: 4px;
+}
+textarea {
+    width:calc(80% - 8px);
+    padding: 4px;
+    border: rgb(118, 118, 118) 1px solid;
+}
+header {
+    width: 500px;
+    margin: 0 auto 20px;
+    padding: 20px 0 0;
+}
+.nav {
+    ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .btn {
+        display: block;
+        background: #fff;
+        color: $bodycolor;
+        height: 30px;
+        line-height: 30px;
+        text-decoration: none;
+        width: inherit;
+        margin: 0 5px;
+        padding: 0 20px;
 
     }
 }

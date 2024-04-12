@@ -1,19 +1,35 @@
 <?php
-//1. POSTデータ取得
-$email  = $_POST["email"];
-$age    = $_POST["age"];
-$address = $_POST["address"];
-
-
 
 //2. DB接続します
 include("funcs.php");
 $pdo = db_conn();
 
-//ここでギャル文字に書き換える
+
+//ここで画像の設定
+$tempfile = $_FILES['fname']['tmp_name'];
+$filename = './' . $_FILES['fname']['name'];
+
+if (is_uploaded_file($tempfile)) {
+
+    if ( move_uploaded_file($tempfile , $filename )) {
+        echo $filename."をアップロードしました。";
+        echo '<img src="';
+        echo $filename;
+        echo '">';
+    } else {
+        echo "ファイルをアップロードできません。";
+    }
+} else {
+    echo "ファイルが選択されていません。";
+} 
+
+
 $name   = $_POST["name"];
 $naiyou = $_POST["naiyou"];
+$address = $_POST["address"];
+$age = $_POST["age"];
 
+//ここでギャル文字に書き換える
 $target = array(
     'あ', 
     'い',
@@ -63,15 +79,15 @@ $target = array(
     'ん'
 );
 $replace = array(
-    '亜',//あ
-    'ﾚヽ',
+    'ぁ',//あ
+    'ぃ',
     'ｩ',
-    '之',
-    '汚',
+    'ぇ',
+    'ぉ',
     'ヵ',//か
     'ｷ',
     '＜',
-    'ﾚﾅ',
+    'ケ',
     'ｺ',
     '±',//さ
     'Ｕ',
@@ -90,7 +106,7 @@ $replace = array(
     'σ',
     'ﾚょ',//は
     'Ω',
-    'ζヽ',
+    'ﾌ',
     'Λ',
     'ﾚま',
     'мα',//ま
@@ -114,13 +130,26 @@ $new_naiyou = str_replace($target, $replace, $naiyou);
 $new_name = str_replace($target, $replace, $name);
 
 
+
+
+if($name){
+    echo $new_name;
+}
+if($name){
+    echo $new_naiyou;
+}
+if($address){
+    echo $address;
+}
+
+
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("INSERT INTO gs_an_table(name,email,age,naiyou,address,indate)VALUES(:name,:email,:age,:naiyou,:address,sysdate())");
+$stmt = $pdo->prepare("INSERT INTO gs_an_table(name,age,naiyou,address,filename,indate)VALUES(:name,:age,:naiyou,:address,:filename,sysdate())");
 $stmt->bindValue(':name',   $new_name,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':email',  $email,  PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':age',    $age,    PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':naiyou', $new_naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':address', $address, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':filename', $filename, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $status = $stmt->execute(); //実行
 
 
@@ -131,4 +160,7 @@ if($status==false){
     //*** function化する！*****************
     redirect("select.php");
 }
+
+
+
 ?>

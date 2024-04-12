@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 //PHP:コード記述/修正の流れ
 //1. insert.phpの処理をマルっとコピー。
 //   POSTデータ受信 → DB接続 → SQL実行 → 前ページへ戻る
@@ -9,7 +12,6 @@
 //4. header関数"Location"を「select.php」に変更
 //1. POSTデータ取得
 $name   = $_POST["name"];
-$email  = $_POST["email"];
 $naiyou = $_POST["naiyou"];
 $age    = $_POST["age"];
 $id    = $_POST["id"];
@@ -20,10 +22,9 @@ include("funcs.php");
 $pdo = db_conn();
 
 //３．データ登録SQL作成
-$sql = "UPDATE gs_an_table SET name=:name,email=:email,age=:age,naiyou=:naiyou WHERE id=:id";
+$sql = "UPDATE gs_an_table SET name=:name,age=:age,naiyou=:naiyou WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name',   $name,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':email',  $email,  PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':age',    $age,    PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':naiyou', $naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':id',     $id,     PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
