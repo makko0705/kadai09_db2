@@ -10,11 +10,24 @@
 </head>
 
 <body>
+<!-- Head[Start] -->
+<header>
+  <nav class="nav">
+    <ul>
+      <li><a class="btn header_link" href="./">プロフィール</a></li>
+      <li><a class="btn header_link" href="bbs/index.php">投稿する</a></li>
+      <li><a class="btn header_link" href="bbs/select.php">BBS</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- Head[End] -->
     <div class="outer">
-        <marquee>♡ﾁｬﾝﾏｷの部屋へようこそ♡</marquee>
+        <div class="blog_head">
+        <marquee><p>♡ﾁｬﾝﾏｷの部屋へようこそ♡</p></marquee>
         <p class="">†*:;;;:*†*:;;;:*†*:;;;:*†*:;;;:*†**†*:;;;:*†*:;;;:*†*:;;;:*†*:;;;:**†</p>
         <p>キリ番踏んだら報告してね✨</p>
         <p class="blinking">あなたは<img src="img/c01.gif">人目のお姫様♡</p>
+        </div>
         <div class="eyecatch">
             <p><img src="img/eyecatch.png" alt=""></p>
         </div>

@@ -42,10 +42,6 @@ body{
     background: $bodycolor;
     color: $textcolor;
 }
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
 .outer{
     position: relative;
     width: 500px;
@@ -54,7 +50,14 @@ table {
     color: $bodycolor;
     padding:40px 0;
 }
+.blog_head {
+    p {
+        margin-bottom: 10px;
+    }
+}
 table {
+    border-collapse: collapse;
+    border-spacing: 0;
     width: 80%;
     margin: 0 auto;
 }
@@ -138,6 +141,7 @@ td {
     line-height: 40px;
     height: 40px;
     width: 44%;
+    padding: 0;
     border-radius: 10px;
     border: none;
     font-weight: bold;
@@ -158,33 +162,40 @@ td {
 .bbs_select {
     .chat_item {
         border-top:$bodycolor 2px solid;
-        padding: 10px 20px 10px;
+        padding: 40px 40px 20px;
         position: relative;
     }
     .chat_head {
         display: flex;
         justify-content: flex-start;
-        margin-bottom: 5px;
+        margin-bottom: 26px;
+        background: $bodycolor;
+        color: #fff;
+        padding: 10px;
+        position: relative;
+        .address {
+            position: absolute;
+            right: 10px;
+        }
     }
     .id {
         margin-right: 20px;
     }
     .image {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         img {
             width: 100%;
         }
     }
 
     .text {
-        margin-bottom: 10px;
+        margin-bottom: 26px;
         text-align: left;
     }
     .btn_area {
         width: 100%;
         justify-content: end;
-        margin-right: -10px;
     }
     .btn {
         line-height: 26px;
@@ -192,6 +203,7 @@ td {
         width: initial;
         padding: 0 20px;
         margin: 0 5px;
+        text-decoration: none;
     }
 }
 legend {

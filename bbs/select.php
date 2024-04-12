@@ -52,7 +52,9 @@ include("../tpl/head.php");
         <div class="chat_item">
           <p class="chat_head"><span class="id"><?=h($v["id"])?></span><span class="name"><?=h($v["name"])?></span><span class="address"><?=h($v["address"])?></span></p>
           <div class="text"><?=h($v["naiyou"])?></div>
-          <div class="image"><img src="<?=h($v["filename"])?>"></div>
+          <?php if ( $v["filename"] !== 0 && $v["filename"] !== "./") {?>
+            <div class="image"><img src="<?=h($v["filename"])?>"></div>
+          <?php } ?>
           <div class="btn_area">
             <a class="btn" href="detail.php?id=<?=h($v["id"])?>" target="_brank">更新</a>
             <a class="btn" href="delete.php?id=<?=h($v["id"])?>">削除</a>
