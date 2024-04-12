@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>画像アップロード</title>
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
@@ -55,7 +56,7 @@
             <tr>
                 <td>
                     <div class="input_area">
-                        <div class="brash">
+                        <div class="brash input_item">
                             <div class="brash_menu">
                                 <span>ペンの色</span>
                                 <input type="color" id="brash_color"><p id="inputColorResult"></p>       
@@ -66,12 +67,12 @@
                                 <p id="inputWidthResult"></p> 
                             </div>
                         </div>
-                        <div class="upload">
+                        <div class="upload input_item">
                                 <form action="test.html" method="post" enctype="multipart/form-data" >
                                 <input type="file" name="test" onchange="previewFile(this);" id="file">
                         </div>    
                     </div>
-                    <div class="wrap printclub">
+                    <div class="wrap printclub input_item">
                         <div class="canvas_wrap">
                         <img src="" id="demo_image" width="500" height="500" alt="画像を選んでください">
                         <div id="bg_area"></div>

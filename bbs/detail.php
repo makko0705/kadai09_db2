@@ -1,5 +1,10 @@
 <?php
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+
 $id = $_GET["id"];
+$title = '☆更新する';
+
 //１．PHP
 include("funcs.php");
 $pdo = db_conn();
@@ -20,45 +25,36 @@ if($status==false) {
 $v =  $stmt->fetch(); //PDO::FETCH_ASSOC[カラム名のみで取得できるモード]
 //$json = json_encode($values,JSON_UNESCAPED_UNICODE);
 ?>
-<!--
-２．HTML
-以下にindex.phpのHTMLをまるっと貼り付ける！
-理由：入力項目は「登録/更新」はほぼ同じになるからです。
-※form要素 input type="hidden" name="id" を１項目追加（非表示項目）
-※form要素 action="update.php"に変更
-※input要素 value="ここに変数埋め込み"
--->
+
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>データ更新</title>
-  <link href="../css/style.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="../img/favicon.png">
-</head>
-<body>
+
+  <?php include("../tpl/head.php");?>
+
+<body class="bbs_detail">
 
 <!-- Head[Start] -->
-<header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
-    </div>
-  </nav>
-</header>
+<?php include("../tpl/header.php");?>
 <!-- Head[End] -->
+
 
 <!-- Main[Start] -->
 <div class="outer">
-    <div class="container">
 <form method="POST" action="update.php">
-  <div class="jumbotron">
-   <fieldset>
-    <legend>フリーアンケート更新</legend>
-     <label>名前：<input type="text" name="name" value="<?=$v["name"]?>"></label><br>
-     <label>Email：<input type="text" name="email" value="<?=$v["email"]?>"></label><br>
-     <label>エリア；
-      <select name="address" id="">
+  <legend>更新スるょ</legend>
+  <fieldset>
+  <table>
+    <tr>
+      <th>名前は?</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="name" value="<?=$v["name"]?>"></td>
+    </tr>
+    <tr>
+      <th>どこ住み?</th>
+    </tr>
+    <tr>
+      <td><select name="address" id="">
         <option value="北海道">北海道</option>
         <option value="東北">東北</option>
         <option value="関東">関東</option>
@@ -66,36 +62,31 @@ $v =  $stmt->fetch(); //PDO::FETCH_ASSOC[カラム名のみで取得できるモ
         <option value="関西">関西</option>
         <option value="中国">中国</option>
         <option value="九州">九州</option>
-      </select></label><br>
-     <label>年齢：<input type="text" name="age" value="<?=$v["age"]?>"></label><br>
-     <label><textArea name="naiyou" class="naiyou" rows="4" cols="40"><?=$v["naiyou"]?></textArea></label><br>
-     <input type="hidden" name="id" value="<?=$v["id"]?>">
-     <input type="submit" value="送信">
-    </fieldset>
-  </div>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>年齢</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="age" value="<?=$v["age"]?>"></td>
+    </tr>
+    <tr>
+      <th>コメント☆</th>
+    </tr>
+    <tr>
+      <td><textArea name="naiyou" class="naiyou" rows="4" cols="40"><?=$v["naiyou"]?></textArea></td>
+    </tr>
+
+  </table>
+  <input type="hidden" name="id" value="<?=$v["id"]?>">
+  <input type="submit" value="更新する" class="submit btn">
+</fieldset>
 </form>
-</div>
 </div>
 
 <!-- Main[End] -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-<script>
-  var change_text = $(".naiyou").val();
-  console.log(change_text);
-  change_text = change_text.replace("a","ァ");
-  change_text = change_text.replace("i","ィ");
-  change_text = change_text.replace("u","ぅ");
-  change_text = change_text.replace("e","ぇ");
-  change_text = change_text.replace("o","ァ");
-  change_text = change_text.replace("k","ァ");
-  change_text = change_text.replace("a","ァ");
-  change_text = change_text.replace("a","ァ");
-  change_text = change_text.replace("a","ァ");
-  console.log(change_text);
-  $(".naiyou").text(change_text);
-
-</script>
 </body>
 </html>
 
