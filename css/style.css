@@ -162,13 +162,21 @@ td {
 /* bbs_select */
 .bbs_select .chat_item {
   border-top: #e4007f 2px solid;
-  padding: 10px 20px 10px;
+  padding: 40px 40px 10px;
   position: relative;
 }
 .bbs_select .chat_head {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  background: #e4007f;
+  color: #fff;
+  padding: 10px;
+  position: relative;
+}
+.bbs_select .chat_head .address {
+  position: absolute;
+  right: 10px;
 }
 .bbs_select .id {
   margin-right: 20px;
